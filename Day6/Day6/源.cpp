@@ -1,56 +1,53 @@
-//class Solution
-//{
-//public:
-//	//考虑溢出
-//	//
-//	int StrToInt(string str)
-//	{
-//		size_t size = str.size();
-//		if (size > 11)
-//		{
-//			return 0;//int最大是11位，包括符号
-//		}
-//		size_t i = 0;
-//		char flag = str[0];
-//		if (flag == '+' || flag == '-')//第一为应该是+或-
-//		{
-//			i = 1;
-//		}
-//		long res = 0;
-//		for (i; i < size; ++i)
-//		{
-//			res *= 10;
-//			if (str[i] < '0' || str[i] > '9')
-//			{
-//				return 0;
-//			}
-//			res = res + (str[i] - '0');
-//		}
-//		if (flag == '-')
-//		{
-//			res = 0 - res;
-//		}
-//		if (res < INT_MIN || res > INT_MAX)
-//		{
-//			return 0;
-//		}
-//		return (int)res;
-//	}
-//};
-//
-//int main()
-//{
-//	Solution s;
-//	string str = "2147483647";
-//	cout << s.StrToInt(str) << endl;
-//	system("pause");
-//	return 0;
-//}
+class Solution
+{
+public:
+	//考虑溢出
+	//将一个字符串转换成一个整数(实现Integer.valueOf(string)的功能，
+	//但是string不符合数字要求时返回0)，要求不能使用字符串转换整数的库函数。 
+	//数值为0或者字符串不是一个合法的数值则返回0。
+	int StrToInt(string str)
+	{
+		size_t size = str.size();
+		if (size > 11)
+		{
+			return 0;//int最大是11位，包括符号
+		}
+		size_t i = 0;
+		char flag = str[0];
+		if (flag == '+' || flag == '-')//第一为应该是+或-
+		{
+			i = 1;
+		}
+		long res = 0;
+		for (i; i < size; ++i)
+		{
+			res *= 10;
+			if (str[i] < '0' || str[i] > '9')
+			{
+				return 0;
+			}
+			res = res + (str[i] - '0');
+		}
+		if (flag == '-')
+		{
+			res = 0 - res;
+		}
+		if (res < INT_MIN || res > INT_MAX)
+		{
+			return 0;
+		}
+		return (int)res;
+	}
+};
+
 
 #include<iostream>
-
 using namespace std;
-
+//二货小易有一个W*H的网格盒子，网格的行编号为0~H - 1，网格的列编号为0~W - 1。
+//每个格子至多可以放一块蛋糕，任意两块蛋糕的欧几里得距离不能等于2。
+//对于两个格子坐标(x1, y1), (x2, y2)的欧几里得距离为:
+//((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)) 的算术平方根
+//小易想知道最多可以放多少块蛋糕在网格盒子里。
 bool Solution()
 {
 	int W;

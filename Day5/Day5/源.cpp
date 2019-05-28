@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<vector>
 using namespace std;
 //#define INT_MAX 2147483647
 //#define INT_MIN -21474836478
@@ -54,7 +55,39 @@ public:
 	//所有连续子数组中和最大的值
 	void SolutionTwo()
 	{
+		//输入
+		int N;
+		int num;
+		cin >> N;
+		vector<int> arr;
+		for (int i = 0; i < N; ++i)
+		{
+			cin >> num;
+			arr.push_back(num);
+		}
 
+		//方案，用一个res来保存前面最大和，
+		//如果res是个正数，那么res就会越来越大，如果res是负数，会暂定到最小的负数上
+		//9    8    -8    3    ==    22
+		//-1    -2    -3    -4    ==    -1
+		//1    -2    3    4    ==    7
+		int res = arr[0];
+		int sum1 = 0;//保存
+		int sum2 = 0;
+		for (int i = 0; i < N; ++i)
+		{
+			sum2 = sum1 + arr[i];
+			if (sum2 > res)
+			{
+				res = sum2;//来保存历史最大和
+			}
+			if (sum2 < 0)//如果第一个数就是负数，或者到后面最大和被负数加成了负数。
+			{//如果是负数，就会拉低后面的最大和。所以重新开始
+				sum2 = 0;
+			}
+			sum1 = sum2;//来保存当前的最大和
+		}
+		cout << res;
 	}
 };
 

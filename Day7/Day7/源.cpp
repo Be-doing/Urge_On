@@ -1,6 +1,17 @@
 #include<iostream>
 using namespace std;
 
+//Fibonacci数列是这样定义的：
+//F[0] = 0
+//F[1] = 1
+//for each i ≥ 2: F[i] = F[i - 1] + F[i - 2]
+//因此，Fibonacci数列就形如：0, 1, 1, 2, 3, 5, 8, 13, ...，
+//在Fibonacci数列中的数我们称为Fibonacci数。给你一个N，
+//你想让其变为一个Fibonacci数，每一步你可以把当前数字X变为X - 1或者X + 1，
+//现在给你一个数N求最少需要多少步可以变为Fibonacci数
+
+
+
 //输入一个数，找到离它最近的两个斐波那契数，比较距离之后输出
 //创建一个返回实现斐波那契数的函数
 //在第一个大于它的数停下来
@@ -45,7 +56,9 @@ bool SolutionOne()
 }
 
 #include<stack>
-
+//对于一个字符串，请设计一个算法，判断其是否为一个合法的括号串。
+//
+//给定一个字符串A和它的长度n，请返回一个bool值代表它是否为一个合法的括号串。
 class Parenthesis {
 public:
 
