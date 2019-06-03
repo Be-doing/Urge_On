@@ -92,12 +92,17 @@ bool Solution()
 	int cur = 0;//当前的差
 	while (n <= m)//例如10==5 + 5的时候，需要取等
 	{
+		if (n == m && n == 2)//4的时候
+		{
+			goto r;
+		}
 		if (IsnotPrime(n) || IsnotPrime(m))//不能是素数
 		{
 			++n;
 			--m;
 			continue;
 		}
+		r:
 		cur = m - n;
 		if (cur < dif)
 		{
@@ -108,8 +113,8 @@ bool Solution()
 		++n;
 		--m;
 	}
-	cout << ret1 << ret2;
-	//cout << ret2;
+	cout << ret1 << endl;
+	cout << ret2 << endl;;
 	return true;
 }
 int main()
