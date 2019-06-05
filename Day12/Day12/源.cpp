@@ -61,65 +61,39 @@ public:
 
 #include<iostream>
 using namespace std;
-bool IsnotPrime(int n)
+
+bool IsPrime(int num)
 {
-	for (int i = 2; i < n; ++i)
+	for (int i = 2; i < num / 2; ++i)
 	{
-		if ((n % i) == 0)
+		if (num % i == 0)
 		{
-			return true;
+			return false;
 		}
 	}
-	return false;
-}
-bool Solution()
-{
-	int num;//输入的数
-
-
-	int ret1 = 0;//第一个因子
-	int ret2 = 0;//第二个因子
-
-	cin >> num;
-	if (num % 2 != 0 || num <= 2)
-	{
-		return false;
-	}
-	int dif = num;//差
-
-	int n = 1;
-	int m = num - 1;
-	int cur = 0;//当前的差
-	while (n <= m)//例如10==5 + 5的时候，需要取等
-	{
-		if (n == m && n == 2)//4的时候
-		{
-			goto r;
-		}
-		if (IsnotPrime(n) || IsnotPrime(m))//不能是素数
-		{
-			++n;
-			--m;
-			continue;
-		}
-		r:
-		cur = m - n;
-		if (cur < dif)
-		{
-			dif = cur;
-			ret1 = n;
-			ret2 = m;
-		}
-		++n;
-		--m;
-	}
-	cout << ret1 << endl;
-	cout << ret2 << endl;;
 	return true;
 }
+
+void Solution(int num)
+{
+	int mid = num / 2;
+	int i = mid;
+	for (i; i >= 0; --i)
+	{
+		if (IsPrime(i) && IsPrime(num - i))
+		{
+			break;
+		}
+	}
+	cout << i << endl << num - i << endl;
+}
+
 int main()
 {
-	Solution();
-	system("pause");
+	int num;
+	while (cin >> num)
+	{
+		Solution(num);
+	}
 	return 0;
 }
