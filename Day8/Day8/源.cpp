@@ -3,108 +3,112 @@
 #include<string.h>
 #include<vector>
 using namespace std;
-考拉有n个字符串字符串，任意两个字符串长度都是不同的。考拉最近学习到有两种字符串的排序方法： 
-1.根据字符串的字典序排序。例如：
-"car" < "carriage" < "cats" < "doggies < "koala"
-2.根据字符串的长度排序。例如：
-"car" < "cats" < "koala" < "doggies" < "carriage"
-考拉想知道自己的这些字符串排列顺序是否满足这两种排序方法，考拉要忙着吃树叶，所以需要你来帮忙验证。
-vector<int> Dctionary(vector<string> vStr, int size)
+//考拉有n个字符串字符串，任意两个字符串长度都是不同的。考拉最近学习到有两种字符串的排序方法： 
+//1.根据字符串的字典序排序。例如：
+//"car" < "carriage" < "cats" < "doggies < "koala"
+//2.根据字符串的长度排序。例如：
+//"car" < "cats" < "koala" < "doggies" < "carriage"
+//考拉想知道自己的这些字符串排列顺序是否满足这两种排序方法，考拉要忙着吃树叶，所以需要你来帮忙验证。
+bool DecSort(vector<string>& Vstr, size_t size)
 {
-	vector<int> flag;
-
-	for (int i = 0; i < size; ++i)
+	for (size_t i = 0; i < size - 1; ++i)
 	{
-		if (strcmp(vStr[i].c_str(), vStr[i + 1].c_str()) <= 0)
+		if (strcmp(Vstr[i].c_str(), Vstr[i + 1].c_str()) > 0)
 		{
-			flag.push_back(i);
-		}
-		else
-		{
-			flag.push_back(i + 1);
+			return false;
 		}
 	}
-	return flag;
+	return true;
 }
-vector<int> Length(vector<string> vStr, int size)
-{
-	vector<int> flag;
 
-	for (int i = 0; i < size - 1; ++i)
+bool SizeSort(vector<string>& Vstr, size_t size)
+{
+	for (size_t i = 0; i < size - 1; ++i)
 	{
-		if (vStr[i].size() <= vStr[i + 1].size())
+		if (Vstr[i].size() > Vstr[i + 1].size())
 		{
-			flag.push_back(i);
-		}
-		else
-		{
-			flag.push_back(i + 1);
+			return false;
 		}
 	}
-	return flag;
+	return true;
 }
-bool Solution()
-{
-	int N;
-	vector<string> vStr;
-	vector<int> vFlag;
-	vector<int> flag1;
-	vector<int> flag2;
-	string inStr;
-	cin >> N;
-	if (N <= 1)
-	{
-		return false;
-	}
-	//if(N == 1)
-	//{
-  //      cout << "both";
-  //      return true;
- //   }
-	for (int i = 0; i < N; ++i)
-	{
-		cin >> inStr;
-		vStr.push_back(inStr);
-		vFlag.push_back(i);
-	}
-	vStr.push_back("0");	
-	flag1 = Dctionary(vStr, N);
-	flag2 = Length(vStr, N);
 
-	int j = 0;
-	int k = 0;
-	for (int i = 0; i < N; ++i)
+void SolutionOne()
+{
+	int num;
+	string str;
+	vector<string> Vstr;
+	cin >> num;
+	for (int i = 0; i < num; ++i)
 	{
-		if (flag1[i] == vFlag[i])
-		{
-			++j;
-		}
-		if (flag2[i] == vFlag[i])
-		{
-			++k;
-		}
+		cin >> str;
+		Vstr.push_back(str);
 	}
-	if ((j == N - 1) && (k == N - 1))
+	size_t size = Vstr.size();
+	bool decflag = DecSort(Vstr, size);
+	bool sizeflag = SizeSort(Vstr, size);
+
+	if (decflag && sizeflag)
 	{
 		cout << "both";
 	}
-	else if ((j != N - 1) && (k == N - 1))
-	{
-		cout << "lengths";
-	}
-	else if ((j == N - 1) && (k != N - 1))
+	else if (decflag)
 	{
 		cout << "lexicographically";
 	}
-	//else
-	//{
-	  //  return false;
-   // }
+	else if (sizeflag)
+	{
+		cout << "lengths";
+	}
+	else
+	{
+		cout << "none";
+	}
+}
+
+//题目描述
+//
+//正整数A和正整数B 的最小公倍数是指 能被A和B整除的最小的正整数值，设计一个算法，求输入A和B的最小公倍数。
+void Swap(int& num1, int& num2)
+{
+	int tmp = num1;
+	num1 = num2;
+	num2 = tmp;
+}
+bool SolutionTwo()
+{
+	int num1;
+	int num2;
+	cin >> num1 >> num2;
+	if (num1 == num2)
+	{
+		cout << num1;
+		return true;
+	}
+	if (num2 > num1)
+	{
+		Swap(num1, num2);
+	}
+	if (num1 % num2 == 0)
+	{
+		cout << num1;
+		return true;
+	}
+	for (int i = 1; i < num1 * num2; ++i)
+	{
+		int res = num1 + i;
+		if ((res % num1 == 0) && (res % num2 == 0))
+		{
+			cout << res;
+			return true;
+		}
+	}
+	cout << num1 * num2;
 	return true;
 }
 
 int main()
 {
-	Solution();
+	SolutionOne();
 	return 0;
 }

@@ -55,7 +55,10 @@ void buble(vector<int>& vx)
 	{
 		for (int j = 0; j < vx.size() - i; ++j)
 		{
-			if(vx[j] <vx[]]]]])
+			if (vx[j] < vx[j + 1])
+			{
+				swap(vx[j], vx[j + 1]);
+			}
 		}
 	}
 }
@@ -73,7 +76,7 @@ int main()
 		cin >> num;
 		vx_.push_back(num);
 	}
-	sort(vx_.begin(), vx_.end());
+	buble(vx_);
 	while (n >= 2)
 	{
 		for (int i = 0; i < n; ++i)
