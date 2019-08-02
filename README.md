@@ -7,3 +7,5 @@
 
 ## 示例
 
+![](https://github.com/Be-doing/Urge_On/blob/master/screenshot/1.png)
+![](https://github.com/Be-doing/Urge_On/blob/master/screenshot/2.png)
