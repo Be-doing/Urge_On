@@ -3,7 +3,6 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
-
 class Day3
 {
 //读入一个字符串str，输出字符串str中的连续最长的数字串
