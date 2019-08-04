@@ -1,114 +1,74 @@
 #include<iostream>
 using namespace std;
 
-//FibonacciÊýÁÐÊÇÕâÑù¶¨ÒåµÄ£º
+//Fibonacciæ•°åˆ—æ˜¯è¿™æ ·å®šä¹‰çš„ï¼š
 //F[0] = 0
 //F[1] = 1
-//for each i ¡Ý 2: F[i] = F[i - 1] + F[i - 2]
-//Òò´Ë£¬FibonacciÊýÁÐ¾ÍÐÎÈç£º0, 1, 1, 2, 3, 5, 8, 13, ...£¬
-//ÔÚFibonacciÊýÁÐÖÐµÄÊýÎÒÃÇ³ÆÎªFibonacciÊý¡£¸øÄãÒ»¸öN£¬
-//ÄãÏëÈÃÆä±äÎªÒ»¸öFibonacciÊý£¬Ã¿Ò»²½Äã¿ÉÒÔ°Ñµ±Ç°Êý×ÖX±äÎªX - 1»òÕßX + 1£¬
-//ÏÖÔÚ¸øÄãÒ»¸öÊýNÇó×îÉÙÐèÒª¶àÉÙ²½¿ÉÒÔ±äÎªFibonacciÊý
+//for each i â‰¥ 2: F[i] = F[i - 1] + F[i - 2]
+//å› æ­¤ï¼ŒFibonacciæ•°åˆ—å°±å½¢å¦‚ï¼š0, 1, 1, 2, 3, 5, 8, 13, ...ï¼Œ
+//åœ¨Fibonacciæ•°åˆ—ä¸­çš„æ•°æˆ‘ä»¬ç§°ä¸ºFibonacciæ•°ã€‚ç»™ä½ ä¸€ä¸ªNï¼Œ
+//ä½ æƒ³è®©å…¶å˜ä¸ºä¸€ä¸ªFibonacciæ•°ï¼Œæ¯ä¸€æ­¥ä½ å¯ä»¥æŠŠå½“å‰æ•°å­—Xå˜ä¸ºX - 1æˆ–è€…X + 1ï¼Œ
+//çŽ°åœ¨ç»™ä½ ä¸€ä¸ªæ•°Næ±‚æœ€å°‘éœ€è¦å¤šå°‘æ­¥å¯ä»¥å˜ä¸ºFibonacciæ•°
 
 
 
-//ÊäÈëÒ»¸öÊý£¬ÕÒµ½ÀëËü×î½üµÄÁ½¸öì³²¨ÄÇÆõÊý£¬±È½Ï¾àÀëÖ®ºóÊä³ö
-//´´½¨Ò»¸ö·µ»ØÊµÏÖì³²¨ÄÇÆõÊýµÄº¯Êý
-//ÔÚµÚÒ»¸ö´óÓÚËüµÄÊýÍ£ÏÂÀ´
-#define MAX 1000000
-int Fibo(int ra)
+//è¾“å…¥ä¸€ä¸ªæ•°ï¼Œæ‰¾åˆ°ç¦»å®ƒæœ€è¿‘çš„ä¸¤ä¸ªæ–æ³¢é‚£å¥‘æ•°ï¼Œæ¯”è¾ƒè·ç¦»ä¹‹åŽè¾“å‡º
+//åˆ›å»ºä¸€ä¸ªè¿”å›žå®žçŽ°æ–æ³¢é‚£å¥‘æ•°çš„å‡½æ•°
+//åœ¨ç¬¬ä¸€ä¸ªå¤§äºŽå®ƒçš„æ•°åœä¸‹æ¥
+#include<iostream>
+using namespace std;
+
+int main()
 {
-	if (ra == 0)
-	{
-		return 0;
-	}
-	if (ra == 1)
-	{
-		return 1;//3    2 11
-	}
-	return Fibo(ra - 1) + Fibo(ra - 2);
-}
-
-bool SolutionOne()
-{
-	int N;
-	cin >> N;
-	int i = 0;
-	int max = 0;
-	int min = 0;
-	for (i; i < MAX; ++i)
-	{
-		if (N == Fibo(i))
-		{
-			cout << 0;
-			return true;
-		}
-		max = Fibo(i + 1);
-		min = Fibo(i);
-		if (N < max)
-		{
-			break;
-		}
-	}
-	int res = (N - min) > (max - N) ? max - N : N - min;
-	cout << res;
-	return true;
+    int res;//ç»“æžœ
+    int min;//å°çš„æ–æ³¢é‚£å¥‘æ•°
+    int max;//å¤§çš„æ–æ³¢é‚£å¥‘æ•°
+    int num;//è¾“å…¥çš„æ•°
+    
+    cin >> num;
+    int f0 = 0;
+    int f1 = 1;
+    int fi;
+    while(1)
+    {
+        fi = f0 + f1;
+        f0 = f1;
+        f1 = fi;
+        if(num < fi)
+        {
+            min = num - f0;
+            max = f1 - num;
+            break;
+        }
+    }
+    res = max > min ? min : max;
+    cout << res << endl;
+    return 0;
 }
 
 #include<stack>
-//¶ÔÓÚÒ»¸ö×Ö·û´®£¬ÇëÉè¼ÆÒ»¸öËã·¨£¬ÅÐ¶ÏÆäÊÇ·ñÎªÒ»¸öºÏ·¨µÄÀ¨ºÅ´®¡£
+//å¯¹äºŽä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¯·è®¾è®¡ä¸€ä¸ªç®—æ³•ï¼Œåˆ¤æ–­å…¶æ˜¯å¦ä¸ºä¸€ä¸ªåˆæ³•çš„æ‹¬å·ä¸²ã€‚
 //
-//¸ø¶¨Ò»¸ö×Ö·û´®AºÍËüµÄ³¤¶Èn£¬Çë·µ»ØÒ»¸öboolÖµ´ú±íËüÊÇ·ñÎªÒ»¸öºÏ·¨µÄÀ¨ºÅ´®¡£
+//ç»™å®šä¸€ä¸ªå­—ç¬¦ä¸²Aå’Œå®ƒçš„é•¿åº¦nï¼Œè¯·è¿”å›žä¸€ä¸ªboolå€¼ä»£è¡¨å®ƒæ˜¯å¦ä¸ºä¸€ä¸ªåˆæ³•çš„æ‹¬å·ä¸²ã€‚
 class Parenthesis {
 public:
-
-	bool chkParenthesis(string A, int n) {
-		// write code here
-		if (n == 0 || n == 1)
-		{
-			return false;
-		}
-		stack<char> chStack;
-		chStack.push(A[0]);
-			for (int i = 1; i < n; ++i)
-			{
-				if (A[i] == ')')
-				{
-					if (!chStack.empty() && chStack.top() == '(')
-					{
-						chStack.pop();
-					}
-					else
-					{
-						return false;
-					}
-
-				}
-				else if (A[i] == '(')
-				{
-					chStack.push(A[i]);
-				}
-				else
-				{
-					return false;
-				}
-			}
-			if (!chStack.empty())
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-	}
+    bool chkParenthesis(string A, int n) {
+        // write code here
+        if(n == 0)
+            return false;
+        stack<char> s;
+        for(int i = 0; i < A.size(); ++i)
+        {
+            if(A[i] == '(')
+                s.push(A[i]);
+            else if(A[i] == ')')
+                if(!s.empty() && s.top() == '(')
+                    s.pop();
+                else
+                    return false;
+            else
+                return false;
+        }
+            return true;
+    }
 };
-int main()
-{
-	Parenthesis s;
-	string str = "())";
-	size_t size = str.size();
-	cout << s.chkParenthesis(str, size) << endl;;
-	system("pause");
-	return 0;
-}
