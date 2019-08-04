@@ -1,114 +1,81 @@
-#include<iostream>
 #include<string>
-#include<string.h>
 #include<vector>
+#include<iostream>
 using namespace std;
-//¿¼À­ÓĞn¸ö×Ö·û´®×Ö·û´®£¬ÈÎÒâÁ½¸ö×Ö·û´®³¤¶È¶¼ÊÇ²»Í¬µÄ¡£¿¼À­×î½üÑ§Ï°µ½ÓĞÁ½ÖÖ×Ö·û´®µÄÅÅĞò·½·¨£º 
-//1.¸ù¾İ×Ö·û´®µÄ×ÖµäĞòÅÅĞò¡£ÀıÈç£º
+//è€ƒæ‹‰æœ‰nä¸ªå­—ç¬¦ä¸²å­—ç¬¦ä¸²ï¼Œä»»æ„ä¸¤ä¸ªå­—ç¬¦ä¸²é•¿åº¦éƒ½æ˜¯ä¸åŒçš„ã€‚è€ƒæ‹‰æœ€è¿‘å­¦ä¹ åˆ°æœ‰ä¸¤ç§å­—ç¬¦ä¸²çš„æ’åºæ–¹æ³•ï¼š 
+//1.æ ¹æ®å­—ç¬¦ä¸²çš„å­—å…¸åºæ’åºã€‚ä¾‹å¦‚ï¼š
 //"car" < "carriage" < "cats" < "doggies < "koala"
-//2.¸ù¾İ×Ö·û´®µÄ³¤¶ÈÅÅĞò¡£ÀıÈç£º
+//2.æ ¹æ®å­—ç¬¦ä¸²çš„é•¿åº¦æ’åºã€‚ä¾‹å¦‚ï¼š
 //"car" < "cats" < "koala" < "doggies" < "carriage"
-//¿¼À­ÏëÖªµÀ×Ô¼ºµÄÕâĞ©×Ö·û´®ÅÅÁĞË³ĞòÊÇ·ñÂú×ãÕâÁ½ÖÖÅÅĞò·½·¨£¬¿¼À­ÒªÃ¦×Å³ÔÊ÷Ò¶£¬ËùÒÔĞèÒªÄãÀ´°ïÃ¦ÑéÖ¤¡£
-bool DecSort(vector<string>& Vstr, size_t size)
-{
-	for (size_t i = 0; i < size - 1; ++i)
-	{
-		if (strcmp(Vstr[i].c_str(), Vstr[i + 1].c_str()) > 0)
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
-bool SizeSort(vector<string>& Vstr, size_t size)
-{
-	for (size_t i = 0; i < size - 1; ++i)
-	{
-		if (Vstr[i].size() > Vstr[i + 1].size())
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
-void SolutionOne()
-{
-	int num;
-	string str;
-	vector<string> Vstr;
-	cin >> num;
-	for (int i = 0; i < num; ++i)
-	{
-		cin >> str;
-		Vstr.push_back(str);
-	}
-	size_t size = Vstr.size();
-	bool decflag = DecSort(Vstr, size);
-	bool sizeflag = SizeSort(Vstr, size);
-
-	if (decflag && sizeflag)
-	{
-		cout << "both";
-	}
-	else if (decflag)
-	{
-		cout << "lexicographically";
-	}
-	else if (sizeflag)
-	{
-		cout << "lengths";
-	}
-	else
-	{
-		cout << "none";
-	}
-}
-
-//ÌâÄ¿ÃèÊö
-//
-//ÕıÕûÊıAºÍÕıÕûÊıB µÄ×îĞ¡¹«±¶ÊıÊÇÖ¸ ÄÜ±»AºÍBÕû³ıµÄ×îĞ¡µÄÕıÕûÊıÖµ£¬Éè¼ÆÒ»¸öËã·¨£¬ÇóÊäÈëAºÍBµÄ×îĞ¡¹«±¶Êı¡£
-void Swap(int& num1, int& num2)
-{
-	int tmp = num1;
-	num1 = num2;
-	num2 = tmp;
-}
-bool SolutionTwo()
-{
-	int num1;
-	int num2;
-	cin >> num1 >> num2;
-	if (num1 == num2)
-	{
-		cout << num1;
-		return true;
-	}
-	if (num2 > num1)
-	{
-		Swap(num1, num2);
-	}
-	if (num1 % num2 == 0)
-	{
-		cout << num1;
-		return true;
-	}
-	for (int i = 1; i < num1 * num2; ++i)
-	{
-		int res = num1 + i;
-		if ((res % num1 == 0) && (res % num2 == 0))
-		{
-			cout << res;
-			return true;
-		}
-	}
-	cout << num1 * num2;
-	return true;
-}
-
+//è€ƒæ‹‰æƒ³çŸ¥é“è‡ªå·±çš„è¿™äº›å­—ç¬¦ä¸²æ’åˆ—é¡ºåºæ˜¯å¦æ»¡è¶³è¿™ä¸¤ç§æ’åºæ–¹æ³•ï¼Œè€ƒæ‹‰è¦å¿™ç€åƒæ ‘å¶ï¼Œæ‰€ä»¥éœ€è¦ä½ æ¥å¸®å¿™éªŒè¯ã€‚
 int main()
 {
-	SolutionOne();
-	return 0;
+    int n;
+    vector<string> v;
+    cin >> n;
+    while(n--)
+    {
+        string str;
+        cin >> str;
+        v.push_back(str);
+    }
+    bool notleng = false;
+    bool notdic = false;
+    for(size_t i = 1; i < v.size(); ++i)
+    {
+        if(v[i].size() < v[i - 1].size())
+        {
+            notleng = true;
+        }
+        if(v[i] < v[i - 1])
+        {
+            notdic = true;
+            if(notleng)
+                break;
+        }
+    }
+    if(notleng && notdic)
+        cout << "none";
+    else if(!(notleng || notdic))
+        cout << "both";
+    else if (notleng)
+        cout << "lexicographically";
+    else
+        cout << "lengths";
+    return 0;
+}
+
+
+
+
+#include<iostream>
+using namespace std;
+//é¢˜ç›®æè¿°
+//
+//æ­£æ•´æ•°Aå’Œæ­£æ•´æ•°B çš„æœ€å°å…¬å€æ•°æ˜¯æŒ‡ èƒ½è¢«Aå’ŒBæ•´é™¤çš„æœ€å°çš„æ­£æ•´æ•°å€¼ï¼Œè®¾è®¡ä¸€ä¸ªç®—æ³•ï¼Œæ±‚è¾“å…¥Aå’ŒBçš„æœ€å°å…¬å€æ•°ã€‚
+int main()
+{
+    int A,B;
+    cin >> A >> B;
+    int min, max;
+    if(A > B)
+    {
+        min = B;
+        max = A;
+    }
+    else
+    {
+        min = A;
+        max = B;
+    }
+    for(int i = 1; i <= min; ++i)
+    {
+        int tmp = max * i;
+        if(tmp % min == 0)
+        {
+            cout << tmp;
+            return 0;
+        }
+    }
+    return 0;
 }
