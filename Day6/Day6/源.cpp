@@ -48,7 +48,36 @@ using namespace std;
 //对于两个格子坐标(x1, y1), (x2, y2)的欧几里得距离为:
 //((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)) 的算术平方根
 //小易想知道最多可以放多少块蛋糕在网格盒子里。
-bool Solution()
+
+//暴力求解法1：
+bool Solution1()
+{
+	int w,h,res = 0; 
+	cin >> w >> h; 
+	vector<vector<int>> a; 
+	a.resize(w); 
+	for(auto& e : a) 
+		e.resize(h, 1); 
+		for(int i=0;i<w;i++) 
+		{ 
+			for(int j=0;j<h;j++) 
+			{ 
+			if(a[i][j]==1) 
+			{ 
+				res++; 
+				if((i+2)<w) // 标记不能放蛋糕的位置 
+					a[i+2][j] = 0; 
+				if((j+2)<h) 
+					a[i][j+2] = 0; 
+			} 
+		} 
+	}
+	cout << res;
+}
+
+
+//暴力求解2
+bool Solution2()
 {
 	int W;
 	int H;
@@ -95,7 +124,7 @@ bool Solution()
 }
 int main()
 {
-	Solution();
+	Solution2();
 	system("pause");
 	return 0;
 }
