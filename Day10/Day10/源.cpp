@@ -1,5 +1,6 @@
 #include<vector>
 #include<iostream>
+//é¢˜ç›®åœ°å€ï¼šhttps://www.nowcoder.com/practice/e1bb714eb9924188a0d5a6df2216a3d1?tpId
 using namespace std;
 class Board {
 public:
@@ -30,15 +31,14 @@ public:
 		return false;
 	}
 };
-
-
+//é¢˜ç›®åœ°å€ï¼šhttps://www.nowcoder.com/practice/52d382c2a7164767bca2064c1c9d5361?tpId
 #include<iostream>
 #include<string>
 using namespace std;
 int Passwd(string& passwd)
 {
 	int level = 0;
-	size_t len = passwd.size();//ÃÜÂë³¤¶È
+	size_t len = passwd.size();//å¯†ç é•¿åº¦
 	if (len == 0)
 	{
 		cout << "VERY_WEAK";
@@ -56,10 +56,10 @@ int Passwd(string& passwd)
 		level = 25;
 	}
 	char c;
-	int xch = 0;//Ğ¡Ğ´×ÖÄ¸±ê¼Ç
-	int dch = 0;//´óĞ´×ÖÄ¸±ê¼Ç
-	int num = 0;//Êı×Ö±ê¼Ç
-	int fuh = 0;//·ûºÅ±ê¼Ç
+	int xch = 0;//å°å†™å­—æ¯æ ‡è®°
+	int dch = 0;//å¤§å†™å­—æ¯æ ‡è®°
+	int num = 0;//æ•°å­—æ ‡è®°
+	int fuh = 0;//ç¬¦å·æ ‡è®°
 	for (size_t i = 0; i < len; ++i)
 	{
 		c = passwd[i];
@@ -73,49 +73,49 @@ int Passwd(string& passwd)
 		}
 		if (c >= '0' && c <= '9')
 		{
-			num = num + 1;//ÊÇ·ñÖ»ÓĞÒ»¸öÊı×Ö
+			num = num + 1;//æ˜¯å¦åªæœ‰ä¸€ä¸ªæ•°å­—
 		}
 		if ((c >= 32 && c <= 47) || (c >= 58 && c <= 64) || (c >= 91 && c <= 96) || (c >= 123 && c <= 126))
 		{
-			fuh = fuh + 1;//ÊÇ·ñ´óÓÚÒ»¸ö·ûºÅ
+			fuh = fuh + 1;//æ˜¯å¦å¤§äºä¸€ä¸ªç¬¦å·
 		}
 	}
-	int flag = 0;//Âú×ãÌõ¼şµÄ±ê¼Ç
+	int flag = 0;//æ»¡è¶³æ¡ä»¶çš„æ ‡è®°
 	if ((xch == 1 && dch == 0) || (dch == 1 && xch == 0))
-	{//Ö»ÓĞ´óĞ´×Ö·û»òÕßÖ»ÓĞĞ¡Ğ´×ÖÄ¸
+	{//åªæœ‰å¤§å†™å­—ç¬¦æˆ–è€…åªæœ‰å°å†™å­—æ¯
 		level += 10;
 		flag = 1;
 	}
-	if (num == 1)//Èç¹ûÊı×ÖÖ»ÓĞÒ»¸ö
+	if (num == 1)//å¦‚æœæ•°å­—åªæœ‰ä¸€ä¸ª
 	{
 		level += 10;
 		flag += 2;
 	}
-	if (num > 1)//Êı×Ö´óÓÚÒ»¸ö
+	if (num > 1)//æ•°å­—å¤§äºä¸€ä¸ª
 	{
 		level += 20;
 		flag += 2;
 	}
-	if (xch == 1 && dch == 1)//´óĞ¡Ğ´¶¼ÓĞ
+	if (xch == 1 && dch == 1)//å¤§å°å†™éƒ½æœ‰
 	{
 		level += 20;
-		flag += 50;//ÎªÁËÇø·ÖÖ»ÓĞĞ¡Ğ´»òÕßÖ»ÓĞ´óĞ´µÄ±ê¼Ç
+		flag += 50;//ä¸ºäº†åŒºåˆ†åªæœ‰å°å†™æˆ–è€…åªæœ‰å¤§å†™çš„æ ‡è®°
 	}
-	if (fuh == 1)//Ö»ÓĞÒ»¸ö·ûºÅ
+	if (fuh == 1)//åªæœ‰ä¸€ä¸ªç¬¦å·
 	{
 		level += 10;
 		flag += 20;
 	}
-	if (fuh > 1)//´óÓÚÒ»¸ö·ûºÅ
+	if (fuh > 1)//å¤§äºä¸€ä¸ªç¬¦å·
 	{
 		level += 25;
 		flag += 20;
 	}
-	if (flag == 3 || flag == 52)//Ö»ÓĞÊı×ÖºÍ×ÖÄ¸
+	if (flag == 3 || flag == 52)//åªæœ‰æ•°å­—å’Œå­—æ¯
 	{
 		level += 2;
 	}
-	if (flag == 23)//ÓĞÊı×Ö×ÖÄ¸£¬ºÍ·ûºÅ
+	if (flag == 23)//æœ‰æ•°å­—å­—æ¯ï¼Œå’Œç¬¦å·
 	{
 		level += 3;
 	}
@@ -172,7 +172,7 @@ int main()
 //using namespace std;
 //int numChar(string str, int k)
 //{
-//	//¸ù¾İASCIIÂëÅĞ¶Ï×ÖÄ¸´óĞ¡Ğ´
+//	//æ ¹æ®ASCIIç åˆ¤æ–­å­—æ¯å¤§å°å†™
 //	int small = 0;
 //	int big = 0;
 //	for (int i = 0; i < k; i++)
@@ -192,7 +192,7 @@ int main()
 //}
 //int numNumber(string str, int k)
 //{
-//	//¸ù¾İASCIIÂëÅĞ¶ÏÊı×Ö¸öÊı£¬¼õÈ¥×Ö·û¡®0¡¯Ö®ºóÔÚ0~9Ö®¼äµÄ¼´ÎªÊı×Ö
+//	//æ ¹æ®ASCIIç åˆ¤æ–­æ•°å­—ä¸ªæ•°ï¼Œå‡å»å­—ç¬¦â€˜0â€™ä¹‹ååœ¨0~9ä¹‹é—´çš„å³ä¸ºæ•°å­—
 //	int num = 0;
 //	for (int i = 0; i < k; i++)
 //	{
@@ -211,7 +211,7 @@ int main()
 //	int num = 0;
 //	for (int i = 0; i < k; i++)
 //	{
-//		//³ıÈ¥×ÖÄ¸£¬Êı×Ö£¬ÆäËü¶¼Îª·ûºÅ
+//		//é™¤å»å­—æ¯ï¼Œæ•°å­—ï¼Œå…¶å®ƒéƒ½ä¸ºç¬¦å·
 //		if (!(str[i] >= 65 && str[i] <= 90)
 //			&& !(str[i] >= 97 && str[i] <= 122)
 //			&& !(str[i] - '0' >= 0 && str[i] - '0' <= 9))
