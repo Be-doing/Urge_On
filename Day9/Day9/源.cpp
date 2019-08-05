@@ -1,6 +1,6 @@
-//Çë±àÐ´Ò»¸öº¯Êý£¬½«Á½¸öÊý×ÖÏà¼Ó¡£²»µÃÊ¹ÓÃ + »òÆäËûËãÊýÔËËã·û¡£
+//è¯·ç¼–å†™ä¸€ä¸ªå‡½æ•°ï¼Œå°†ä¸¤ä¸ªæ•°å­—ç›¸åŠ ã€‚ä¸å¾—ä½¿ç”¨ + æˆ–å…¶ä»–ç®—æ•°è¿ç®—ç¬¦ã€‚
 //
-//¸ø¶¨Á½¸öint AºÍB¡£Çë·µ»ØA£«BµÄÖµ
+//ç»™å®šä¸¤ä¸ªint Aå’ŒBã€‚è¯·è¿”å›žAï¼‹Bçš„å€¼
 class UnusualAdd {
 public:
 	int addAB(int A, int B) {
@@ -9,8 +9,8 @@ public:
 		int carry = 0;
 		while (B)
 		{
-			sum = A ^ B;//Òì»òÏàµ±ÓëÏà¼Ó
-			carry = (A&B) << 1;//ÓëÏàµ±ÓÚ½øÎ»£¬ÒòÎªÖ»ÓÐ1&1 == 1
+			sum = A ^ B;//å¼‚æˆ–ç›¸å½“ä¸Žç›¸åŠ 
+			carry = (A&B) << 1;//ä¸Žç›¸å½“äºŽè¿›ä½ï¼Œå› ä¸ºåªæœ‰1&1 == 1
 			B = carry;
 			A = sum;
 		}
@@ -20,29 +20,24 @@ public:
 
 #include<iostream>
 using namespace std;
-//Çë±àÐ´Ò»¸öº¯Êý£¨ÔÊÐíÔö¼Ó×Óº¯Êý£©£¬¼ÆËãn x mµÄÆåÅÌ¸ñ×Ó£¨nÎªºáÏòµÄ¸ñ×ÓÊý£¬mÎªÊúÏòµÄ¸ñ×ÓÊý£©
-//ÑØ×Å¸÷×Ô±ßÔµÏß´Ó×óÉÏ½Ç×ßµ½ÓÒÏÂ½Ç£¬×Ü¹²ÓÐ¶àÉÙÖÖ×ß·¨£¬ÒªÇó²»ÄÜ×ß»ØÍ·Â·£¬¼´£ºÖ»ÄÜÍùÓÒºÍÍùÏÂ×ß£¬²»ÄÜÍù×óºÍÍùÉÏ×ß¡£
-int LoadNum(int n, int m)
+//è¯·ç¼–å†™ä¸€ä¸ªå‡½æ•°ï¼ˆå…è®¸å¢žåŠ å­å‡½æ•°ï¼‰ï¼Œè®¡ç®—n x mçš„æ£‹ç›˜æ ¼å­ï¼ˆnä¸ºæ¨ªå‘çš„æ ¼å­æ•°ï¼Œmä¸ºç«–å‘çš„æ ¼å­æ•°ï¼‰
+//æ²¿ç€å„è‡ªè¾¹ç¼˜çº¿ä»Žå·¦ä¸Šè§’èµ°åˆ°å³ä¸‹è§’ï¼Œæ€»å…±æœ‰å¤šå°‘ç§èµ°æ³•ï¼Œè¦æ±‚ä¸èƒ½èµ°å›žå¤´è·¯ï¼Œå³ï¼šåªèƒ½å¾€å³å’Œå¾€ä¸‹èµ°ï¼Œä¸èƒ½å¾€å·¦å’Œå¾€ä¸Šèµ°ã€‚
+
+#include<iostream>
+using namespace std;
+int PathNum(int n, int m)
 {
-	if (n > 1 && m > 1)
-	{
-		return LoadNum(n - 1, m) + LoadNum(n, m - 1);
-	}
-	else if (((n == 1) && (m >= 1)) || ((n >= 1) && (m == 1)))
-	{
-		return n + m;
-	}
-	else
-	{
-		return 0;
-	}
+    if(n > 1 && m > 1)
+        return PathNum(n - 1, m) + PathNum(n, m -1);
+    else if(n == 1 || m == 1)
+        return m + n;
+    else
+        return 0;
 }
 int main()
 {
-	int n;
-	int m;
-	cin >> n >> m;
-	cout << LoadNum(n, m);
-	system("pause");
-	return 0;
+    int m, n;
+    while(cin >> n >> m)
+    cout << PathNum(n, m) << endl;
+    return 0;
 }
