@@ -8,17 +8,17 @@ using namespace std;
 class Day5
 {
 public:
-//»ØÎÄ´®¡±ÊÇÒ»¸öÕý¶ÁºÍ·´¶Á¶¼Ò»ÑùµÄ×Ö·û´®£¬±ÈÈç¡°level¡±»òÕß¡°noon¡±µÈµÈ¾ÍÊÇ»ØÎÄ´®¡£
-//»¨»¨·Ç³£Ï²»¶ÕâÖÖÓµÓÐ¶Ô³ÆÃÀµÄ»ØÎÄ´®£¬ÉúÈÕµÄÊ±ºòËýµÃµ½Á½¸öÀñÎï·Ö±ðÊÇ×Ö·û´®AºÍ×Ö·û´®B¡£
-//ÏÖÔÚËý·Ç³£ºÃÆæÓÐÃ»ÓÐ°ì·¨½«×Ö·û´®B²åÈë×Ö·û´®AÊ¹²úÉúµÄ×Ö·û´®ÊÇÒ»¸ö»ØÎÄ´®¡£Äã½ÓÊÜ»¨»¨µÄÇëÇó£¬
-//°ïÖúËýÑ°ÕÒÓÐ¶àÉÙÖÖ²åÈë°ì·¨¿ÉÒÔÊ¹ÐÂ´®ÊÇÒ»¸ö»ØÎÄ´®¡£Èç¹û×Ö·û´®B²åÈëµÄÎ»ÖÃ²»Í¬¾Í¿¼ÂÇÎª²»Ò»ÑùµÄ°ì·¨¡£
-//ÀýÈç£º
-//A = ¡°aba¡±£¬B = ¡°b¡±¡£ÕâÀïÓÐ4ÖÖ°ÑB²åÈëAµÄ°ì·¨£º
-//* ÔÚAµÄµÚÒ»¸ö×ÖÄ¸Ö®Ç°: "baba" ²»ÊÇ»ØÎÄ
-//* ÔÚµÚÒ»¸ö×ÖÄ¸¡®a¡¯Ö®ºó : "abba" ÊÇ»ØÎÄ
-//* ÔÚ×ÖÄ¸¡®b¡¯Ö®ºó : "abba" ÊÇ»ØÎÄ
-//* ÔÚµÚ¶þ¸ö×ÖÄ¸'a'Ö®ºó "abab" ²»ÊÇ»ØÎÄ
-//ËùÒÔÂú×ãÌõ¼þµÄ´ð°¸Îª2
+//å›žæ–‡ä¸²â€æ˜¯ä¸€ä¸ªæ­£è¯»å’Œåè¯»éƒ½ä¸€æ ·çš„å­—ç¬¦ä¸²ï¼Œæ¯”å¦‚â€œlevelâ€æˆ–è€…â€œnoonâ€ç­‰ç­‰å°±æ˜¯å›žæ–‡ä¸²ã€‚
+//èŠ±èŠ±éžå¸¸å–œæ¬¢è¿™ç§æ‹¥æœ‰å¯¹ç§°ç¾Žçš„å›žæ–‡ä¸²ï¼Œç”Ÿæ—¥çš„æ—¶å€™å¥¹å¾—åˆ°ä¸¤ä¸ªç¤¼ç‰©åˆ†åˆ«æ˜¯å­—ç¬¦ä¸²Aå’Œå­—ç¬¦ä¸²Bã€‚
+//çŽ°åœ¨å¥¹éžå¸¸å¥½å¥‡æœ‰æ²¡æœ‰åŠžæ³•å°†å­—ç¬¦ä¸²Bæ’å…¥å­—ç¬¦ä¸²Aä½¿äº§ç”Ÿçš„å­—ç¬¦ä¸²æ˜¯ä¸€ä¸ªå›žæ–‡ä¸²ã€‚ä½ æŽ¥å—èŠ±èŠ±çš„è¯·æ±‚ï¼Œ
+//å¸®åŠ©å¥¹å¯»æ‰¾æœ‰å¤šå°‘ç§æ’å…¥åŠžæ³•å¯ä»¥ä½¿æ–°ä¸²æ˜¯ä¸€ä¸ªå›žæ–‡ä¸²ã€‚å¦‚æžœå­—ç¬¦ä¸²Bæ’å…¥çš„ä½ç½®ä¸åŒå°±è€ƒè™‘ä¸ºä¸ä¸€æ ·çš„åŠžæ³•ã€‚
+//ä¾‹å¦‚ï¼š
+//A = â€œabaâ€ï¼ŒB = â€œbâ€ã€‚è¿™é‡Œæœ‰4ç§æŠŠBæ’å…¥Açš„åŠžæ³•ï¼š
+//* åœ¨Açš„ç¬¬ä¸€ä¸ªå­—æ¯ä¹‹å‰: "baba" ä¸æ˜¯å›žæ–‡
+//* åœ¨ç¬¬ä¸€ä¸ªå­—æ¯â€˜aâ€™ä¹‹åŽ : "abba" æ˜¯å›žæ–‡
+//* åœ¨å­—æ¯â€˜bâ€™ä¹‹åŽ : "abba" æ˜¯å›žæ–‡
+//* åœ¨ç¬¬äºŒä¸ªå­—æ¯'a'ä¹‹åŽ "abab" ä¸æ˜¯å›žæ–‡
+//æ‰€ä»¥æ»¡è¶³æ¡ä»¶çš„ç­”æ¡ˆä¸º2
 	bool IsPalindrome(const string & s)
 	{
 		return equal(s.begin(), s.end(), s.rbegin());
@@ -28,7 +28,7 @@ public:
 		string oneStr;
 		string twoStr;
 		string curStr;
-		getline(cin, oneStr);
+		getline(cin, oneStr);//è¯»å–ä¸€è¡Œ
 		getline(cin, twoStr);
 		int count = 0;
 		//string& insert (size_t pos, const string& str);
@@ -46,16 +46,15 @@ public:
 		}
 		cout << count;
 	}
-
-	//Ò»¸öÊý×éÓÐ N ¸öÔªËØ£¬ÇóÁ¬Ðø×ÓÊý×éµÄ×î´óºÍ¡£ ÀýÈç£º[-1, 2, 1]£¬ºÍ×î´óµÄÁ¬Ðø×ÓÊý×éÎª[2, 1]£¬ÆäºÍÎª 3
-	//	ÊäÈëÃèÊö:
-	//ÊäÈëÎªÁ½ÐÐ¡£ µÚÒ»ÐÐÒ»¸öÕûÊýn(1 <= n <= 100000)£¬±íÊ¾Ò»¹²ÓÐn¸öÔªËØ µÚ¶þÐÐÎªn¸öÊý£¬
-	//¼´Ã¿¸öÔªËØ, Ã¿¸öÕûÊý¶¼ÔÚ32Î»int·¶Î§ÄÚ¡£ÒÔ¿Õ¸ñ·Ö¸ô¡£
-	//	Êä³öÃèÊö :
-	//ËùÓÐÁ¬Ðø×ÓÊý×éÖÐºÍ×î´óµÄÖµ
+	//ä¸€ä¸ªæ•°ç»„æœ‰ N ä¸ªå…ƒç´ ï¼Œæ±‚è¿žç»­å­æ•°ç»„çš„æœ€å¤§å’Œã€‚ ä¾‹å¦‚ï¼š[-1, 2, 1]ï¼Œå’Œæœ€å¤§çš„è¿žç»­å­æ•°ç»„ä¸º[2, 1]ï¼Œå…¶å’Œä¸º 3
+	//	è¾“å…¥æè¿°:
+	//è¾“å…¥ä¸ºä¸¤è¡Œã€‚ ç¬¬ä¸€è¡Œä¸€ä¸ªæ•´æ•°n(1 <= n <= 100000)ï¼Œè¡¨ç¤ºä¸€å…±æœ‰nä¸ªå…ƒç´  ç¬¬äºŒè¡Œä¸ºnä¸ªæ•°ï¼Œ
+	//å³æ¯ä¸ªå…ƒç´ , æ¯ä¸ªæ•´æ•°éƒ½åœ¨32ä½intèŒƒå›´å†…ã€‚ä»¥ç©ºæ ¼åˆ†éš”ã€‚
+	//	è¾“å‡ºæè¿° :
+	//æ‰€æœ‰è¿žç»­å­æ•°ç»„ä¸­å’Œæœ€å¤§çš„å€¼
 	void SolutionTwo()
 	{
-		//ÊäÈë
+		//è¾“å…¥
 		int N;
 		int num;
 		cin >> N;
@@ -66,26 +65,26 @@ public:
 			arr.push_back(num);
 		}
 
-		//·½°¸£¬ÓÃÒ»¸öresÀ´±£´æÇ°Ãæ×î´óºÍ£¬
-		//Èç¹ûresÊÇ¸öÕýÊý£¬ÄÇÃ´res¾Í»áÔ½À´Ô½´ó£¬Èç¹ûresÊÇ¸ºÊý£¬»áÔÝ¶¨µ½×îÐ¡µÄ¸ºÊýÉÏ
+		//æ–¹æ¡ˆï¼Œç”¨ä¸€ä¸ªresæ¥ä¿å­˜å‰é¢æœ€å¤§å’Œï¼Œ
+		//å¦‚æžœresæ˜¯ä¸ªæ­£æ•°ï¼Œé‚£ä¹ˆreså°±ä¼šè¶Šæ¥è¶Šå¤§ï¼Œå¦‚æžœresæ˜¯è´Ÿæ•°ï¼Œä¼šæš‚å®šåˆ°æœ€å°çš„è´Ÿæ•°ä¸Š
 		//9    8    -8    3    ==    22
 		//-1    -2    -3    -4    ==    -1
 		//1    -2    3    4    ==    7
 		int res = arr[0];
-		int sum1 = 0;//±£´æ
+		int sum1 = 0;//ä¿å­˜
 		int sum2 = 0;
 		for (int i = 0; i < N; ++i)
 		{
 			sum2 = sum1 + arr[i];
 			if (sum2 > res)
 			{
-				res = sum2;//À´±£´æÀúÊ·×î´óºÍ
+				res = sum2;//æ¥ä¿å­˜åŽ†å²æœ€å¤§å’Œ
 			}
-			if (sum2 < 0)//Èç¹ûµÚÒ»¸öÊý¾ÍÊÇ¸ºÊý£¬»òÕßµ½ºóÃæ×î´óºÍ±»¸ºÊý¼Ó³ÉÁË¸ºÊý¡£
-			{//Èç¹ûÊÇ¸ºÊý£¬¾Í»áÀ­µÍºóÃæµÄ×î´óºÍ¡£ËùÒÔÖØÐÂ¿ªÊ¼
+			if (sum2 < 0)//å¦‚æžœç¬¬ä¸€ä¸ªæ•°å°±æ˜¯è´Ÿæ•°ï¼Œæˆ–è€…åˆ°åŽé¢æœ€å¤§å’Œè¢«è´Ÿæ•°åŠ æˆäº†è´Ÿæ•°ã€‚
+			{//å¦‚æžœæ˜¯è´Ÿæ•°ï¼Œå°±ä¼šæ‹‰ä½ŽåŽé¢çš„æœ€å¤§å’Œã€‚æ‰€ä»¥é‡æ–°å¼€å§‹
 				sum2 = 0;
 			}
-			sum1 = sum2;//À´±£´æµ±Ç°µÄ×î´óºÍ
+			sum1 = sum2;//æ¥ä¿å­˜å½“å‰çš„æœ€å¤§å’Œ
 		}
 		cout << res;
 	}
