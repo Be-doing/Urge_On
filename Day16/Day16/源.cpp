@@ -32,7 +32,6 @@ bool Solution(int num)
 		return false;
 	}
 }
-
 int count(int num)
 {
 	int count = 0;
