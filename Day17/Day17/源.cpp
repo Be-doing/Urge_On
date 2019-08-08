@@ -1,52 +1,52 @@
-//#include<iostream>
-//#include<vector>
-//using namespace std;
-//
-//int main()
-//{
-//	int n;
-//	int tmp = 1;
-//	vector<int> v1;
-//	vector<int> v2;
-//	cin >> n;
-//
-//	int mid = 1;
-//	for (int i = 0; i < n; ++i)
-//	{
-//		tmp = tmp + 2;
-//	}
-//	//nĞĞÓĞmid¸öÊı£¬midÒ»¶¨ÊÇÆæÊı
-//	//ÔÙÈ¡ÆäÖĞ¼äµÄÊı
-//	v1.resize(tmp);
-//	v2.resize(tmp);
-//	mid = tmp / 2 ;
-//
-//	v1[mid] = 1;
-//	for (int i = 0; i < n; ++i)
-//	{
-//		//Ã¿´Îµş¼ÓÁ½¸öÊı1	3   	5   	7	   9
-//		//tmp = tmp + 2;
-//		for (int j = 1; j < tmp - 1; ++j)
-//		{
-//			v2[j] = v1[j - 1] + v1[j] + v1[j + 1];
-//
-//		}
-//		v1 = v2;
-//	}
-//	v2[0] = 1;
-//	v2[tmp-1] = 1;
-//
-//	for (auto& e : v2)
-//	{
-//		if (e % 2 == 0)
-//		{
-//			cout << e << endl;
-//			break;
-//		}
-//	}
-//	system("pause");
-//	return 0;
-//}
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main()
+{
+	int n;
+	int tmp = 1;
+	vector<int> v1;
+	vector<int> v2;
+	cin >> n;
+
+	int mid = 1;
+	for (int i = 0; i < n; ++i)
+	{
+		tmp = tmp + 2;
+	}
+	//nè¡Œæœ‰midä¸ªæ•°ï¼Œmidä¸€å®šæ˜¯å¥‡æ•°
+	//å†å–å…¶ä¸­é—´çš„æ•°
+	v1.resize(tmp);
+	v2.resize(tmp);
+	mid = tmp / 2 ;
+
+	v1[mid] = 1;
+	for (int i = 0; i < n; ++i)
+	{
+		//æ¯æ¬¡å åŠ ä¸¤ä¸ªæ•°1	3   	5   	7	   9
+		//tmp = tmp + 2;
+		for (int j = 1; j < tmp - 1; ++j)
+		{
+			v2[j] = v1[j - 1] + v1[j] + v1[j + 1];
+
+		}
+		v1 = v2;
+	}
+	v2[0] = 1;
+	v2[tmp-1] = 1;
+
+	for (auto& e : v2)
+	{
+		if (e % 2 == 0)
+		{
+			cout << e << endl;
+			break;
+		}
+	}
+	system("pause");
+	return 0;
+}
 
 
 #include<iostream>
@@ -64,8 +64,8 @@ void Solution(int n)
 	{
 		tmp = tmp + 2;
 	}
-	//nĞĞÓĞmid¸öÊı£¬midÒ»¶¨ÊÇÆæÊı
-	//ÔÙÈ¡ÆäÖĞ¼äµÄÊı
+	//nè¡Œæœ‰midä¸ªæ•°ï¼Œmidä¸€å®šæ˜¯å¥‡æ•°
+	//å†å–å…¶ä¸­é—´çš„æ•°
 	v1.resize(tmp);
 	v2.resize(tmp);
 	mid = tmp / 2;
@@ -73,7 +73,7 @@ void Solution(int n)
 	v1[mid] = 1;
 	for (int i = 0; i < n; ++i)
 	{
-		//Ã¿´Îµş¼ÓÁ½¸öÊı1	3   	5   	7	   9
+		//æ¯æ¬¡å åŠ ä¸¤ä¸ªæ•°1	3   	5   	7	   9
 		//tmp = tmp + 2;
 		for (int j = 1; j < tmp - 1; ++j)
 		{
