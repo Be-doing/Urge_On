@@ -1,53 +1,53 @@
-//#include<iostream>
-//using namespace std;
-//
-//void Solution()
-//{
-//	int year_;
-//	int month_;
-//	int day_;
-//	int outDay_ = 0;
-//	int vYearDay[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30 ,31 ,30 ,31 };//Êı×éµÚÒ»¸öÊıÊÇ0£¬ÎªÁËÆ¥ÅäÊäÈë
-//	cin >> year_ >> month_ >> day_;
-//	if (year_ <= 0 || month_ <= 0 || month_ > 12 || day_ < 0 || day_ > 31)
-//	{
-//		cout << -1;//¶ÔÊäÈë½øĞĞºÏ·¨ĞÔÅĞ¶¨
-//		return;
-//	}
-//	if ((year_ % 400 == 0) || (year_ % 4 == 0 && year_ % 100 != 0))
-//	{
-//		vYearDay[2] += 1;//Èç¹ûÊÇÈòÄê¾Í¶Ô£¬¶şÔÂ+1Ìì
-//	}
-//
-//	if (day_ > vYearDay[month_])
-//	{
-//		cout << -1;//Èç¹ûÊäÈëµÄÊı¾İ´óÓÚµ±ÔÂµÄÌìÊı£¬ÔòÊäÈë·Ç·¨
-//		return;
-//	}
-//	for (int i = 1; i < month_; ++i)
-//	{
-//		outDay_ += vYearDay[i];//¼ÓÉÏ±¾ÔÂÒÔÇ°µÄÌìÊı
-//	}
-//	outDay_ += day_;//¼ÓÉÏµ±ÔÂµÄÌìÊı
-//	cout << outDay_ << endl;//Êä³ö
-//}
+#include<iostream>
+using namespace std;
 
-//int main()
-//{
-//
-//	Solution();
-//	system("pause");
-//	return 0;
-//}
+void Solution()
+{
+	int year_;
+	int month_;
+	int day_;
+	int outDay_ = 0;
+	int vYearDay[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30 ,31 ,30 ,31 };//æ•°ç»„ç¬¬ä¸€ä¸ªæ•°æ˜¯0ï¼Œä¸ºäº†åŒ¹é…è¾“å…¥
+	cin >> year_ >> month_ >> day_;
+	if (year_ <= 0 || month_ <= 0 || month_ > 12 || day_ < 0 || day_ > 31)
+	{
+		cout << -1;//å¯¹è¾“å…¥è¿›è¡Œåˆæ³•æ€§åˆ¤å®š
+		return;
+	}
+	if ((year_ % 400 == 0) || (year_ % 4 == 0 && year_ % 100 != 0))
+	{
+		vYearDay[2] += 1;//å¦‚æœæ˜¯é—°å¹´å°±å¯¹ï¼ŒäºŒæœˆ+1å¤©
+	}
+
+	if (day_ > vYearDay[month_])
+	{
+		cout << -1;//å¦‚æœè¾“å…¥çš„æ•°æ®å¤§äºå½“æœˆçš„å¤©æ•°ï¼Œåˆ™è¾“å…¥éæ³•
+		return;
+	}
+	for (int i = 1; i < month_; ++i)
+	{
+		outDay_ += vYearDay[i];//åŠ ä¸Šæœ¬æœˆä»¥å‰çš„å¤©æ•°
+	}
+	outDay_ += day_;//åŠ ä¸Šå½“æœˆçš„å¤©æ•°
+	cout << outDay_ << endl;//è¾“å‡º
+}
+
+int main()
+{
+
+	Solution();
+	system("pause");
+	return 0;
+}
 
 
 #include<iostream>
 #include<vector>
 #include<algorithm>
 using namespace std;
-//½«ÊäÈëµÄÊı¾İ·ÅÈëvector
-//´æ´¢»ıÓëºÍ¡£Èç¹ûÂú×ãÌõ¼şÔòĞÒÔË´ü×Ó+1
-//ÇóÊı×éµÄ×ÓÊı×é£¬È«ÅÅÁĞ
+//å°†è¾“å…¥çš„æ•°æ®æ”¾å…¥vector
+//å­˜å‚¨ç§¯ä¸å’Œã€‚å¦‚æœæ»¡è¶³æ¡ä»¶åˆ™å¹¸è¿è¢‹å­+1
+//æ±‚æ•°ç»„çš„å­æ•°ç»„ï¼Œå…¨æ’åˆ—
 
 void buble(vector<int>& vx)
 {
@@ -67,9 +67,9 @@ int main()
 	int n;
 	cin >> n;
 	int num;
-	int ji_ = 1;//»ı
-	int sum_ = 0;//ºÍ
-	int count = 0;//ĞÒÔË´üµÄÊıÁ¿
+	int ji_ = 1;//ç§¯
+	int sum_ = 0;//å’Œ
+	int count = 0;//å¹¸è¿è¢‹çš„æ•°é‡
 	vector<int> vx_;
 	for (int i = 0; i < n; ++i)
 	{
