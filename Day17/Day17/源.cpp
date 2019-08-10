@@ -51,68 +51,8 @@ int main()
 
 #include<iostream>
 #include<vector>
-using namespace std;
-
-void Solution(int n)
-{
-	int tmp = 1;
-	vector<int> v1;
-	vector<int> v2;
-	int mid = 1;
-	--n;
-	for (int i = 0; i < n; ++i)
-	{
-		tmp = tmp + 2;
-	}
-	//n行有mid个数，mid一定是奇数
-	//再取其中间的数
-	v1.resize(tmp);
-	v2.resize(tmp);
-	mid = tmp / 2;
-
-	v1[mid] = 1;
-	for (int i = 0; i < n; ++i)
-	{
-		//每次叠加两个数1	3   	5   	7	   9
-		//tmp = tmp + 2;
-		for (int j = 1; j < tmp - 1; ++j)
-		{
-			v2[j] = v1[j - 1] + v1[j] + v1[j + 1];
-
-		}
-		v1 = v2;
-	}
-	v2[0] = 1;
-	v2[tmp - 1] = 1;
-	for (const auto& e : v2)
-	{
-		cout << e << " ";
-	}
-	cout << endl;
-	int i = 0;
-	for ( i ; i < tmp; ++i)
-	{
-		if (v2[i] % 2 == 0)
-		{
-			cout << i + 1 << endl;
-			break;
-		}
-	}
-	if (i == tmp)
-	{
-		cout << -1 << endl;
-	}
-}
 #include<string>
-//int main()
-//{
-//	int n;
-//	while (cin >> n)
-//	{
-//		Solution(n);
-//	}
-//	return 0;
-//}
+using namespace std;
 
 void Solution2(string& str1, string& str2)
 {
