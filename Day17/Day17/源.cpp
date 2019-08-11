@@ -5,27 +5,23 @@ using namespace std;
 int main()
 {
 	int n;
-	int tmp = 1;
+	
 	vector<int> v1;
 	vector<int> v2;
 	cin >> n;
-
-	int mid = 1;
-	for (int i = 0; i < n; ++i)
-	{
-		tmp = tmp + 2;
-	}
-	//n行有mid个数，mid一定是奇数
-	//再取其中间的数
+	
+	//n行有tmp个数
+	int tmp = 2 * n - 1;
+	
 	v1.resize(tmp);
 	v2.resize(tmp);
-	mid = tmp / 2 ;
-
-	v1[mid] = 1;
-	for (int i = 0; i < n; ++i)
+	//再取其中间下标
+	int mid = tmp / 2 ;
+	
+	
+	v1[mid] = 1;//第一行的中间下标是 1
+	for (int i = 0; i < n; ++i)//从第一行开始计算
 	{
-		//每次叠加两个数1	3   	5   	7	   9
-		//tmp = tmp + 2;
 		for (int j = 1; j < tmp - 1; ++j)
 		{
 			v2[j] = v1[j - 1] + v1[j] + v1[j + 1];
@@ -36,15 +32,15 @@ int main()
 	v2[0] = 1;
 	v2[tmp-1] = 1;
 
-	for (auto& e : v2)
+	for (size_t i = 1; i < tmp; ++i)
 	{
-		if (e % 2 == 0)
+		if (v2[i] % 2 == 0)
 		{
-			cout << e << endl;
-			break;
+			cout << i+1 << endl;
+			return 0;
 		}
 	}
-	system("pause");
+	cout << -1 << endl;
 	return 0;
 }
 
