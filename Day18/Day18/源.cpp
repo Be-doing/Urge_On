@@ -40,6 +40,8 @@ void Solution(string& str1, string& str2)
 	if(i == size2)
 	cout << "true" << endl;
 }
+
+
 int main()
 {
 	string str1;
