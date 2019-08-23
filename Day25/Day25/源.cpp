@@ -1,56 +1,5 @@
 // write your code here cpp
 
-//#include<iostream>
-//#include<iomanip>
-//#include<vector>
-//using namespace std;
-//
-//void passwd(int n)
-//{
-//	vector<vector<int>> arr = { {1,1},{1,0} };
-//	vector<vector<int>> tmp(arr);
-//	vector<vector<int>> save(arr);
-//	int sum = n - 1;
-//	for (int i = 0; i < sum; ++i)
-//	{
-//		arr[0][0] = save[0][0] * tmp[1][0] + save[0][1] * tmp[1][0];
-//		arr[0][1] = save[0][0] * tmp[0][1] + save[0][1] * tmp[1][1];
-//		arr[1][0] = save[1][0] * tmp[0][0] + save[1][1] * tmp[0][1];
-//		arr[1][1] = tmp[1][0] * tmp[0][1] + save[1][1] * tmp[1][1];
-//		if (arr[0][0] > 9999)
-//		{
-//			arr[0][0] %= 10000;
-//		}
-//		save = arr;
-//	}
-//	cout << setfill('0') << setw(4) << arr[0][0];
-//}
-//
-//int main()
-//{
-//	int n;
-//	
-//	while (cin >> n)
-//	{
-//		vector<int> arr;
-//		int num;
-//		for (int i = 0; i < n; ++i)
-//		{
-//			cin >> num;
-//			arr.push_back(num);
-//		}
-//		for (auto e : arr)
-//		{
-//			passwd(e);
-//		}
-//		cout << endl;
-//	}
-//	return 0;
-//}
-
-// write your code here cpp
-
-// write your code here cpp
 
 // write your code here cpp
 
